@@ -21,7 +21,11 @@ module.exports = function (bot) {
           .print(font, imgData.x, imgData.y, frase, imgData.width)
           .getBuffer(Jimp.MIME_JPEG, function (err, stream) {
             if (err) error(err)
-            bot.sendPhoto(msg.chat.id, stream)
+            bot.sendPhoto(msg.chat.id, stream).then(function () {
+              img = null
+              stream = null
+              font = null
+            })
           })
       }).catch(error)
     }).catch(error)

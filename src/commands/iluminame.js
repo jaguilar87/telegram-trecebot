@@ -1,8 +1,7 @@
-var frases = require('../../data/frases.json')
+let getQuote = require('../utils/getquote')
 
 module.exports = function (bot) {
   return function (msg) {
-    var frase = frases[Math.floor(Math.random() * frases.length)]
-    bot.sendMessage(msg.chat.id, frase)
+    bot.sendMessage(msg.chat.id, getQuote())
   }
 }

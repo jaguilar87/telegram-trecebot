@@ -1,0 +1,28 @@
+{
+  "name": "trecebot",
+  "version": "0.0.1",
+  "description": "Telegram bot",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "eslint": "^3.5.0",
+    "eslint-config-standard": "^6.0.1",
+    "eslint-plugin-node": "^2.1.2",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaguilar-nice/Telegram-TreceBot.git"
+  },
+  "author": "Jordi Aguilar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaguilar-nice/Telegram-TreceBot/issues"
+  },
+  "homepage": "https://github.com/jaguilar-nice/Telegram-TreceBot#readme"
+}

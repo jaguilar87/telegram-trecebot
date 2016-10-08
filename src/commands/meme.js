@@ -1,9 +1,14 @@
-let Jimp = require('jimp')
-let path = require('path')
-let getQuote = require('../utils/getquote')
-let images = require('../../data/imagerestrains.json')
+// let Jimp = require('jimp')
+// let path = require('path')
+// let images = require('../../data/imagerestrains.json')
+// let getQuote = require('../utils/getquote')
 
 module.exports = function (bot) {
+  return function (msg) {
+    bot.sendMessage(msg.chat.id, '¿Trabajar, yo? Ja. Soy tan vago como el original.')
+  }
+
+  /*
   return function (msg) {
     let error = function (err) {
       bot.sendMessage(msg.chat.id, '<b>AUCH.</b> Algo ha salido mal.', { parse_mode: 'HTML' })
@@ -30,4 +35,5 @@ module.exports = function (bot) {
       }).catch(error)
     }).catch(error)
   }
+  */
 }

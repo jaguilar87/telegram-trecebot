@@ -9,8 +9,9 @@ let bot = new TelegramBot(token, {
   polling: true
 })
 
-bot.onText(/\/di (.+)/, require('./commands/di')(bot))
-bot.onText(/\/wat/, require('./commands/wat')(bot))
-bot.onText(/\/iluminame/, require('./commands/iluminame')(bot))
-bot.onText(/\/add (.+)/, require('./commands/add')(bot))
+bot.onText(/\/d(i)* (.+)/, require('./commands/di')(bot))
+bot.onText(/\/w(at)*/, require('./commands/wat')(bot))
+bot.onText(/\/i(luminame)*/, require('./commands/iluminame')(bot))
+bot.onText(/\/a(dd)* (.+)/, require('./commands/add')(bot))
+bot.onText(/\/r(oll)* (.+)/, require('./commands/roll')(bot))
   // bot.onText(/\/meme/, require('./commands/meme')(bot))

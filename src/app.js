@@ -1,17 +1,10 @@
-let TelegramBot = require('node-telegram-bot-api')
-let config = require('../data/config.json')
+global.frases = require('./utils/frases')
+let bot = require('./utils/initbot')
 
-let token = config.token
-global.frases = require('../data/frases.json')
-
-// Setup polling way
-let bot = new TelegramBot(token, {
-  polling: true
-})
-
-bot.onText(/\/d(i)* (.+)/, require('./commands/di')(bot))
-bot.onText(/\/w(at)*/, require('./commands/wat')(bot))
-bot.onText(/\/i(luminame)*/, require('./commands/iluminame')(bot))
-bot.onText(/\/a(dd)* (.+)/, require('./commands/add')(bot))
-bot.onText(/\/r(oll)* (.+)/, require('./commands/roll')(bot))
-  // bot.onText(/\/meme/, require('./commands/meme')(bot))
+// Set up commands
+bot.onText(/\/d(i)* (.+)/i, require('./commands/di')(bot))
+bot.onText(/\/w(at)*/i, require('./commands/wat')(bot))
+bot.onText(/\/i(luminame)*/i, require('./commands/iluminame')(bot))
+bot.onText(/\/a(dd)* (.+)/i, require('./commands/add')(bot))
+bot.onText(/\/r(oll)* (.+)/i, require('./commands/roll')(bot))
+bot.onText(/\/(rs|rollstats)\s*(.*)/i, require('./commands/rollstats')(bot))

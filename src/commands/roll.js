@@ -1,8 +1,8 @@
 let Roll = require('roll')
-let roll = new Roll()
 
 module.exports = function (bot) {
   return function (msg, pattern) {
+    let roll = new Roll()
     let operation = pattern[2]
     if (roll.validate(operation)) {
       let result = roll.roll(operation)

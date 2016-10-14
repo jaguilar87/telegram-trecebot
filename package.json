@@ -1,15 +1,14 @@
 {
   "name": "trecebot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Telegram bot",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cp -n data/config.sample.json data/config.json && echo 'IMPORTANT: Edit data/config.json with TOKEN'",
     "start": "node src/app.js"
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "jimp": "^0.2.27",
     "node-telegram-bot-api": "^0.23.3",
     "path": "^0.12.7",
     "roll": "^1.2.0"

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "node-telegram-bot-api": "^0.23.3",
+    "node-telegram-bot-api": "^0.24.0",
     "path": "^0.12.7",
     "roll": "^1.2.0"
   },

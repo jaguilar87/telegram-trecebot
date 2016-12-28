@@ -5,15 +5,17 @@ Based on [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api)
 
 ## Install
 ```
-git clone <REPO>
-cd <REPO>
+git clone https://github.com/jaguilar-nice/telegram-trecebot.git
+cd telegram-trecebot
 npm install
 ```
 
-# Config
-Edit data/config.json to add TOKEN.
+## Config
+`npm install` will prompt for app TOKEN.
 
-# Run
+To change the TOKEN run `npm run config` or edit `data/config.json`.
+
+## Run
 ```
 npm start
 ```

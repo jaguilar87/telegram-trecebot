@@ -12,6 +12,7 @@
     "fs": "0.0.1-security",
     "node-telegram-bot-api": "^0.24.0",
     "path": "^0.12.7",
+    "prompt": "^1.0.0",
     "roll": "^1.2.0"
   },
   "devDependencies": {
@@ -24,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaguilar-nice/Telegram-TreceBot.git"
+    "url": "git+https://github.com/jaguilar-nice/telegram-trecebot.git"
   },
   "author": "Jordi Aguilar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaguilar-nice/Telegram-TreceBot/issues"
+    "url": "https://github.com/jaguilar-nice/telegram-trecebot/issues"
   },
-  "homepage": "https://github.com/jaguilar-nice/Telegram-TreceBot#readme"
+  "homepage": "https://github.com/jaguilar-nice/telegram-trecebot#readme"
 }

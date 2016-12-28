@@ -1,4 +1,4 @@
 node_modules
 data/config.json
 data/frases.json
-img/bg*
+npm-debug.log

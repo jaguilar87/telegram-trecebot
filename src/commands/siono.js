@@ -3,7 +3,7 @@ var http = require('https')
 module.exports = function (bot) {
   return function (msg, pattern) {
     var path = '/api/'
-    if (pattern[2]) path += '?force=' + pattern[2]
+    if (pattern[1]) path += '?force=' + pattern[1]
 
     var options = {
       host: 'www.yesno.wtf',
@@ -11,7 +11,7 @@ module.exports = function (bot) {
       headers: { 'Accept': 'application/json' }
     }
 
-    console.log(options.host + options.path)
+    // console.log(options.host + options.path)
 
     http.request(options, function (res) {
       res.setEncoding('utf8')

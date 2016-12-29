@@ -28,9 +28,9 @@ module.exports = function (bot) {
 
             if (g.streams > 0) {
               gameCount += 1
-              matchText += ` _${g.radiant_team.team_name || '?'}_ ` +
+              matchText += ` *${g.radiant_team.team_name || '?'}* ` +
                 `${g.radiant_series_wins} VS ${g.dire_series_wins} ` +
-                `_${g.dire_team.team_name || '?'}_ ` +
+                `*${g.dire_team.team_name || '?'}* ` +
                 `/d2watch${g.id}`
             }
           }

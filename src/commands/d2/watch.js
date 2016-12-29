@@ -24,9 +24,9 @@ module.exports = function (bot) {
         gzip.on('end', () => {
           let r = JSON.parse(data)
           let text = `*${r.league.name}*\n` +
-            ` _${r.radiant_team.team_name || '?'}_ ` +
+            ` *${r.radiant_team.team_name || '?'}* ` +
             `${r.radiant_series_wins} VS ${r.dire_series_wins} ` +
-            `_${r.dire_team.team_name || '?'}_\n` +
+            `*${r.dire_team.team_name || '?'}*\n` +
             `* GAME  ${r.radiant_series_wins + r.dire_series_wins + 1}* ` +
             `(Best of ${((r.series_type === 0) ? '1' : (r.series_type === 1 ? '3' : '5'))}) \n\n`
 
@@ -43,7 +43,7 @@ module.exports = function (bot) {
           }
 
           if (r.league.image) {
-            bot.sendPhoto(msg.chat.id, 'http://www.trackdota.com/data/images/leagues/' + r.leage.id)
+            bot.sendPhoto(msg.chat.id, 'http://www.trackdota.com/data/images/leagues/' + r.league.id)
           }
 
           bot.sendMessage(msg.chat.id, text, {

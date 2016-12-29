@@ -43,7 +43,7 @@ module.exports = function (bot) {
           }
 
           if (r.league.image) {
-            bot.sendPhoto(msg.chat.id, 'http://www.trackdota.com/data/images/leagues/' + r.league.id)
+            bot.sendPhoto(msg.chat.id, 'http://www.trackdota.com/data/images/leagues/' + r.league.id + '.jpg')
           }
 
           bot.sendMessage(msg.chat.id, text, {

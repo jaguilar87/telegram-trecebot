@@ -3,7 +3,7 @@ var http = require('https')
 module.exports = function (bot) {
   return function (msg, pattern) {
     var path = '/api/'
-    if (pattern[2]) path += '?forced=' + pattern[2]
+    if (pattern[2]) path += '?force=' + pattern[2]
 
     var options = {
       host: 'www.yesno.wtf',
@@ -23,7 +23,7 @@ module.exports = function (bot) {
       res.on('end', function () {
         var r = JSON.parse(text)
 
-        bot.sendPhoto(msg.chat.id, r.image, { caption: r.answer })
+        bot.sendMessage(msg.chat.id, r.image + ' ' + r.answer)
       })
     }).on('error', function (e) {
       bot.sendMessage(msg.chat.id, 'Wat?')

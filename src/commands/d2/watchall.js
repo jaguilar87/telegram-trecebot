@@ -36,6 +36,8 @@ module.exports = function (bot) {
           }
           if (gameCount) text += matchText + '\n'
         }
+
+        if (!text) text = 'Nada que ver :C'
         bot.sendMessage(msg.chat.id, text, {
           parse_mode: 'Markdown',
           disable_web_page_preview: true

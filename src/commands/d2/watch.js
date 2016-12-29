@@ -42,6 +42,10 @@ module.exports = function (bot) {
             }
           }
 
+          if (r.league.image) {
+            bot.sendPhoto(msg.chat.id, 'http://www.trackdota.com/data/images/leagues/' + r.leage.id)
+          }
+
           bot.sendMessage(msg.chat.id, text, {
             parse_mode: 'Markdown',
             disable_web_page_preview: true

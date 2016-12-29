@@ -13,7 +13,9 @@ module.exports = function (bot) {
       res.pipe(gzip)
 
       let data = ''
-      gzip.on('data', (chunk) => { data += chunk.toString('utf-8') })
+      gzip.on('data', (chunk) => {
+        data += chunk.toString('utf-8')
+      })
       gzip.on('end', () => {
         let r = JSON.parse(data)
         let text = ''
@@ -29,7 +31,7 @@ module.exports = function (bot) {
               matchText += ` _${g.radiant_team.team_name || '?'}_ ` +
                 `${g.radiant_series_wins} VS ${g.dire_series_wins} ` +
                 `_${g.dire_team.team_name || '?'}_ ` +
-                `[watch](tg://bot_command?command=d2watch)\n`
+                `/d2watch${g.id}`
             }
           }
           if (gameCount) text += matchText + '\n'
@@ -40,8 +42,9 @@ module.exports = function (bot) {
         })
       })
     })
-      .on('error', (e) => { bot.sendMessage(msg.chat.id, 'Wat?') })
+      .on('error', (e) => {
+        bot.sendMessage(msg.chat.id, 'Wat?')
+      })
       .end()
-
   }
 }

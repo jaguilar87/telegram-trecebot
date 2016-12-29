@@ -10,4 +10,8 @@ bot.onText(/\/(rs|rollstats)\s*(.*)/i, require('./commands/rollstats')(bot))
 bot.onText(/\/f(uck)*\s*([^\s]*)\s*([^\s]*)\s*(.*)/i, require('./commands/fuck')(bot))
 bot.onText(/\/sn\s*(.*)/i, require('./commands/siono')(bot))
 
+bot.onText(/\/d2pro\s*(.*)/i, require('./commands/d2/pro')(bot))
+bot.onText(/\/d2watch$/i, require('./commands/d2/watchall')(bot))
+bot.onText(/\/d2watch(.+)/i, require('./commands/d2/watch')(bot))
+
 console.log('Trecebot running!')

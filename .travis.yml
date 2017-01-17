@@ -1,15 +1,12 @@
 language: node_js
 node_js:
   - "6"
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email:
     on_success: never
     on_failure: always
 install: true
 test: true
-before_deploy: npm run deploy
 deploy:
   provider: script
   script: bin/deploy.sh

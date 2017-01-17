@@ -1,10 +1,5 @@
 #!/usr/bin
 
-apt-get install sshpass
-sshpass -p $PASS ssh -o StrictHostKeyChecking=no $HOST
-
-cd telegram/trecebot
-
-git pull
-
-pm2 restart trecebot
+apt-get -y install sshpass
+sshpass -e ssh $HOST 'git -C telegram/trecebot pull'
+sshpass -e ssh $HOST 'pm2 restart trecebot'

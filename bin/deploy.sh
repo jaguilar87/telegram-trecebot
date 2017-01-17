@@ -1,4 +1,4 @@
-#!/usr/bin
+#!/bin/sh
 
 apt-get -y install sshpass
 sshpass -e ssh $HOST 'git -C telegram/trecebot pull'

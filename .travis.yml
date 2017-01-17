@@ -10,5 +10,4 @@ skip_cleanup: true
 deploy:
   provider: script
   script: bin/deploy.sh
-  on:
-    tags: true
+

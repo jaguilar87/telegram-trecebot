@@ -6,7 +6,7 @@ notifications:
     on_success: never
     on_failure: always
 install: true
-test: true
+skip_cleanup: true
 deploy:
   provider: script
   script: bin/deploy.sh

@@ -3,7 +3,8 @@ let fs = require('fs')
 let path = require('path')
 let prompt = require('prompt')
 
-var file = path.join(__dirname, '../data/config.json')
+var folder = path.join(__dirname, '../data/')
+var file = folder + 'config.json'
 var config = { token: '' }
 try {
   if (fs.existsSync(file)) config = require(file)
@@ -23,6 +24,6 @@ prompt.get(['token'], (err, result) => {
     console.log('An error happened.')
     process.exit()
   }
-
+  if (!fs.existsSync(folder)) fs.mkdirSync(folder, { mode: '664' })
   fs.writeFileSync(file, JSON.stringify(config), { mode: '664' })
 })

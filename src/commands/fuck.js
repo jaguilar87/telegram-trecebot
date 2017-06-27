@@ -4,7 +4,9 @@ var operations = []
 
 module.exports = function (bot) {
   return function (msg, pattern) {
-    let endpoint = pattern[2]
+    let endpoint = pattern[1]
+    let pos = endpoint.indexOf('@')
+    if (pos !== -1) endpoint = endpoint.slice(0, pos)
 
     if (!endpoint) {
       request(msg, '/operations')
@@ -20,7 +22,7 @@ module.exports = function (bot) {
           }
           var scheme = opt[0]
           scheme.fields.forEach((field) => {
-            let nextField = 3
+            let nextField = 2
             if (field.field === 'from') {
               path += '/@' + msg.from.username
             } else if (field.field === 'name') {
@@ -34,8 +36,8 @@ module.exports = function (bot) {
         })
       } else {
         // Blind request
+        if (pattern[2]) path += '/' + pattern[2]
         if (pattern[3]) path += '/' + pattern[3]
-        if (pattern[4]) path += '/' + pattern[4]
         path += '/' + '@' + msg.from.username
         request(msg, path)
       }

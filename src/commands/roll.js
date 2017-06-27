@@ -3,7 +3,7 @@ let Roll = require('roll')
 module.exports = function (bot) {
   return function (msg, pattern) {
     let roll = new Roll()
-    let operation = pattern[2]
+    let operation = pattern[1]
     if (roll.validate(operation)) {
       let result = roll.roll(operation)
       let rolled = result.rolled

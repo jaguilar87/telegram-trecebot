@@ -21,8 +21,8 @@ module.exports = function (bot) {
             user = '@' + user[i].user.username
           }
           var scheme = opt[0]
+          let nextField = 2
           scheme.fields.forEach((field) => {
-            let nextField = 2
             if (field.field === 'from') {
               path += '/@' + msg.from.username
             } else if (field.field === 'name') {

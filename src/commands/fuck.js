@@ -26,9 +26,11 @@ module.exports = function (bot) {
             if (field.field === 'from') {
               path += '/@' + msg.from.username
             } else if (field.field === 'name') {
-              path += '/' + (pattern[nextField++] || user)
+              path += '/' + (pattern[nextField] || user)
+              nextField++
             } else {
-              path += '/(' + (pattern[nextField++] || field.name) + ')'
+              path += '/' + (pattern[nextField] || field.name)
+              nextField++
             }
           })
 

@@ -7,7 +7,7 @@ bot.onText(/\/i(luminame)*/i, require('./commands/iluminame')(bot))
 bot.onText(/\/a(dd)*\s+(.+)/i, require('./commands/add')(bot))
 bot.onText(/\/r(oll)*\s+(.+)/i, require('./commands/roll')(bot))
 bot.onText(/\/(rs|rollstats)\s*(.*)/i, require('./commands/rollstats')(bot))
-bot.onText(/\/f(uck)*\s*([^\s]*)\s*([^\s]*)\s*(.*)/i, require('./commands/fuck')(bot))
+bot.onText(/\/f(uck)*[_\s]*([^\s]*)\s*([^\s]*)\s*(.*)/i, require('./commands/fuck')(bot))
 bot.onText(/\/sn\s*(.*)/i, require('./commands/siono')(bot))
 
 bot.onText(/\/d2pro\s*(.*)/i, require('./commands/d2/pro')(bot))

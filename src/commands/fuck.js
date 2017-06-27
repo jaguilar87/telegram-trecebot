@@ -16,9 +16,9 @@ module.exports = function (bot) {
       if (opt && opt.length > 0) {
         generateRandomUser(msg).then((user) => {
           if (Array.isArray(user)) {
-            console.log(user)
+            // console.log(user)
             let i = Math.floor(Math.random() * user.length)
-            user = '@' + user[i].user.username
+            user = '@' + (user[i].user.username || user[i].user.first_name)
           }
           var scheme = opt[0]
           let nextField = 2

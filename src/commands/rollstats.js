@@ -4,7 +4,7 @@ module.exports = function (bot) {
   return function (msg, pattern) {
     let roll = new Roll()
 
-    var args = parseArgs(pattern[2])
+    var args = parseArgs(pattern[1])
 
     var response = 'Tirando ' + args.operation + ' ' + args.nRolls + ' veces.\n'
     if (roll.validate(args.operation)) {

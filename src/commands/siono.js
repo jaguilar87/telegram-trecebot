@@ -11,7 +11,7 @@ module.exports = function (bot) {
       headers: { 'Accept': 'application/json' }
     }
 
-    console.log(options.host + options.path)
+    // console.log(options.host + options.path)
 
     http.request(options, function (res) {
       res.setEncoding('utf8')
@@ -22,7 +22,6 @@ module.exports = function (bot) {
 
       res.on('end', function () {
         var r = JSON.parse(text)
-        console.log(r)
         bot.sendVideo(msg.chat.id, r.image, { caption: r.answer })
       })
     }).on('error', function (e) {

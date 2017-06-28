@@ -31,7 +31,7 @@ module.exports = function (bot) {
               matchText += ` *${g.radiant_team.team_name || '?'}* ` +
                 `${g.radiant_series_wins} VS ${g.dire_series_wins} ` +
                 `*${g.dire_team.team_name || '?'}* ` +
-                `/d2watch${g.id}`
+                `/d2watch${g.id} \n`
             }
           }
           if (gameCount) text += matchText + '\n'

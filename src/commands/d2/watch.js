@@ -32,13 +32,15 @@ module.exports = function (bot) {
 
           for (var i = 0; i < r.streams.length; i++) {
             var stream = r.streams[i]
-            switch (stream.provider) {
-              case 'youtube':
-                text += `[Youtube ${stream.embed_id}](http://youtube.com/watch?v=${stream.embed_id}) ${stream.language}\n`
-                break
-              case 'twitch':
-                text += `[Twitch ${stream.embed_id}](http://twitch.tv/${stream.embed_id}) ${stream.language}\n`
-                break
+            if (!stream.language || stream.language === 'es' || stream.language === 'en') {
+              switch (stream.provider) {
+                case 'youtube':
+                  text += `[Youtube ${stream.embed_id}](http://youtube.com/watch?v=${stream.embed_id}) ${stream.language}\n`
+                  break
+                case 'twitch':
+                  text += `[Twitch ${stream.embed_id}](http://twitch.tv/${stream.embed_id}) ${stream.language}\n`
+                  break
+              }
             }
           }
 

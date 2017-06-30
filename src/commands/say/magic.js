@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const sounds = [
   {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/a/ad/Anti_magicuser_01.mp3',
@@ -30,6 +31,8 @@ const sounds = [
   }
 ]
 
+const img = fs.createReadStream(path.join(__dirname, '../../../img/magic.jpg'))
+
 module.exports = function (bot) {
-  return require('./say.js')(bot, sounds, fs.createReadStream('img/magic.jpg'))
+  return require('./say.js')(bot, sounds, img)
 }

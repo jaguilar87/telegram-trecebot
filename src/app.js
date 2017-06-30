@@ -10,8 +10,12 @@ bot.onText(/\/(?:rs|rollstats)(?:@\w*)*\s*(.*)/i, require('./commands/rollstats'
 bot.onText(/\/f(?:uck)*(?:@\w*)*[_\s]*([^\s]*)\s*([^\s]*)\s*(.*)/i, require('./commands/fuck')(bot))
 bot.onText(/\/sn(?:@\w*)*\s*(.*)/i, require('./commands/siono')(bot))
 
+// Dotka
 bot.onText(/\/d2pro(?:@\w*)*\s*(.*)/i, require('./commands/d2/pro')(bot))
 bot.onText(/\/d2watch(?:@\w*)*$/i, require('./commands/d2/watchall')(bot))
 bot.onText(/\/d2watch(.+)(?:@\w*)*/i, require('./commands/d2/watch')(bot))
+
+// Say
+bot.onText(/\/magic(?:@\w*)*/i, require('./commands/say/magic')(bot))
 
 console.log('Trecebot running!')

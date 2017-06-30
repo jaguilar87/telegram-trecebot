@@ -1,6 +1,9 @@
 global.frases = require('./utils/frases')
 let bot = require('./utils/initbot')
 
+// Greet
+bot.onText(/\/start/i, require('./commands/start')(bot))
+
 // Set up commands
 bot.onText(/\/d(?:i)*(?:@\w*)*\s+(.+)/i, require('./commands/di')(bot))
 bot.onText(/\/i(?:luminame)*(?:@\w*)*/i, require('./commands/iluminame')(bot))

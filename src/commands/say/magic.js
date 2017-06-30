@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const say = require('./say')
+
 const sounds = [
   {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/a/ad/Anti_magicuser_01.mp3',
@@ -31,8 +33,19 @@ const sounds = [
   }
 ]
 
-const img = fs.createReadStream(path.join(__dirname, '../../../img/magic.jpg'))
+let fileId = null
 
 module.exports = function (bot) {
-  return require('./say.js')(bot, sounds, img)
+  return (msg) => {
+    if (fileId) {
+      bot.sendPhoto(msg.chat.id, fileId)
+    } else {
+      let img = fs.readFileSync(path.join(__dirname, '../../../img/magic.jpg'))
+      bot.sendPhoto(msg.chat.id, img).then((data) => {
+        fileId = data.photo[0].file_id
+      })
+    }
+
+    say(bot, msg, sounds)
+  }
 }

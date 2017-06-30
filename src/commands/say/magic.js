@@ -30,6 +30,9 @@ const sounds = [
   }, {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/8/8a/Anti_spawn_04.mp3',
     caption: 'The magic ends here.'
+  }, {
+    url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/5/58/Anti_death_02.mp3',
+    caption: 'What magic is this?'
   }
 ]
 

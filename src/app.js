@@ -20,5 +20,7 @@ bot.onText(/\/d2watch(.+)(?:@\w*)*/i, require('./commands/d2/watch')(bot))
 
 // Say
 bot.onText(/\/magic(?:@\w*)*/i, require('./commands/say/magic')(bot))
+bot.onText(/\/silence(?:@\w*)*/i, require('./commands/say/silence')(bot))
+bot.onText(/\/rekt(?:@\w*)*/i, require('./commands/say/rekt')(bot))
 
 console.log('Trecebot running!')

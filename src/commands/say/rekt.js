@@ -122,7 +122,7 @@ module.exports = function (bot) {
       bot.sendDocument(msg.chat.id, fileId)
     } else {
       let img = fs.readFileSync(path.join(__dirname, '../../../img/rekt.gif'))
-      bot.sendVideo(msg.chat.id, img).then((data) => {
+      bot.sendDocument(msg.chat.id, img).then((data) => {
         fileId = data.document.file_id
       })
     }

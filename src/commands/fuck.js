@@ -5,12 +5,11 @@ var operations = []
 module.exports = function (bot) {
   return function (msg, pattern) {
     let endpoint = pattern[1]
-    let pos = endpoint.indexOf('@')
-    if (pos !== -1) endpoint = endpoint.slice(0, pos)
-
     if (!endpoint) {
       request(msg, '/operations')
     } else {
+      let pos = endpoint.indexOf('@')
+      if (pos !== -1) endpoint = endpoint.slice(0, pos)
       let path = '/' + endpoint
       var opt = operations.filter((i) => { return i.url.startsWith('/' + endpoint) })
       if (opt && opt.length > 0) {

@@ -5,6 +5,7 @@ let bot = require('./utils/initbot')
 bot.onText(/\/start/i, require('./commands/start')(bot))
 
 // Set up commands
+bot.onText(/\/dump*(?:@\w*)*/i, require('./commands/dump')(bot))
 bot.onText(/\/d(?:i)*(?:@\w*)*\s+(.+)/i, require('./commands/di')(bot))
 bot.onText(/\/i(?:luminame)*(?:@\w*)*/i, require('./commands/iluminame')(bot))
 bot.onText(/\/a(?:dd)*(?:@\w*)*\s+(.+)/i, require('./commands/add')(bot))

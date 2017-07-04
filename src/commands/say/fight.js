@@ -7,9 +7,6 @@ const sounds = [
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/e/ec/Legcom_duel_02.mp3',
     caption: 'I challenge you!'
   }, {
-    url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/0/07/Legcom_duel_04.mp3',
-    caption: 'Let\'s see what you\'re made of!'
-  }, {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/c/ce/Legcom_duel_05.mp3',
     caption: 'Care to dance?'
   }, {

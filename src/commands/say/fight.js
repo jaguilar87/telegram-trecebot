@@ -28,9 +28,6 @@ const sounds = [
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/b/b6/Legcom_duelhero_23.mp3',
     caption: 'Defend your mustache!'
   }, {
-    url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/2/27/Legcom_begin_01.mp3',
-    caption: 'If they want war, then we shall give it to them!'
-  }, {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/d/dd/Legcom_fastres_01.mp3',
     caption: 'Victory at any cost!'
   }

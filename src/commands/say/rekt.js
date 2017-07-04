@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const say = require('./say')
 
-const sounds = [
+let sounds = [
   {
     url: 'http://hydra-media.cursecdn.com/dota2.gamepedia.com/5/59/Gyro_ally_01.mp3',
     caption: 'Holy shit it\'s Viper!'
@@ -40,9 +40,6 @@ const sounds = [
     url: 'http://hydra-media.cursecdn.com/dota2.gamepedia.com/d/d6/Lina_cm_03.mp3',
     caption: 'Coldhearted bitch...'
   }, {
-    url: 'http://hydra-media.cursecdn.com/dota2.gamepedia.com/e/e4/Jug_rare_06.mp3',
-    caption: 'I am the Juggernaut, Lich'
-  }, {
     url: 'http://hydra-media.cursecdn.com/dota2.gamepedia.com/e/e3/Invo_kill_11.mp3',
     caption: 'You were no match for my powers. But then, who is?'
   }, {
@@ -72,9 +69,6 @@ const sounds = [
   }, {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/6/6d/Axe_rival_22.mp3',
     caption: 'What happened? Axe happened!'
-  }, {
-    url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/2/27/Legcom_begin_01.mp3',
-    caption: 'If they want war, then we shall give it to them!'
   }, {
     url: 'https://hydra-media.cursecdn.com/dota2.gamepedia.com/9/92/Legcom_respawn_13.mp3',
     caption: 'If that\'s the kind of fight they want, then I will give it to them!'

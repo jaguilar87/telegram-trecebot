@@ -18,9 +18,9 @@ bot.onText(/\/(?:fuck|f)(?:@\w*)*(?:$|\s(\w*)\s*(\w*)\s*(.*))/i, require('./comm
 bot.onText(/\/f_(\w*)(?:@\w*)*\s*(\w*)\s*(.*)/i, require('./commands/fuck')(bot))
 
 // Dotka
-bot.onText(/\/d2pro(?:@\w*)*\s*(.*)/i, require('./commands/d2/pro')(bot))
-bot.onText(/\/d2watch(?:@\w*)*$/i, require('./commands/d2/watchall')(bot))
-bot.onText(/\/d2watch(.+)(?:@\w*)*/i, require('./commands/d2/watch')(bot))
+// bot.onText(/\/d2pro(?:@\w*)*\s*(.*)/i, require('./commands/d2/pro')(bot))
+// bot.onText(/\/d2watch(?:@\w*)*$/i, require('./commands/d2/watchall')(bot))
+// bot.onText(/\/d2watch(.+)(?:@\w*)*/i, require('./commands/d2/watch')(bot))
 
 // Say
 bot.onText(/\/magic(?:@\w*)*/i, require('./commands/say/magic')(bot))

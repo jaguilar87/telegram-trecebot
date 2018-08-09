@@ -1,9 +1,10 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
+const isAdmin = require('../utils/isadmin');
 
-module.exports = function (bot) {
-  return function (msg) {
-    let file = fs.createReadStream(path.join(__dirname, '../../data/frases.json'))
-    bot.sendDocument(msg.chat.id, file)
+module.exports = async function(bot, msg) {
+  if (isAdmin(msg.chat.username)) {
+    let file = fs.createReadStream(path.join(__dirname, '../../data/frases.json'));
+    return bot.sendDocument(msg.chat.id, file);
   }
-}
+};

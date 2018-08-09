@@ -1,22 +1,23 @@
-let TelegramBot = require('node-telegram-bot-api')
-let fs = require('fs')
-let path = require('path')
+const TelegramBot = require('node-telegram-bot-api');
+const fs = require('fs');
+const path = require('path');
 
-var file = path.join(__dirname, '../../data/config.json')
-if (fs.existsSync(file)) {
-  let config = require(file)
-  let token = config.token
+const file = path.join(__dirname, '../../data/config.json');
 
-  if (!token) {
-    console.error('ERROR: Token not present in "data/config.json". run "npm run config".')
-    process.exit()
-  }
-
-  module.exports = new TelegramBot(token, {
-    polling: true,
-    onlyFirstMatch: true
-  })
-} else {
-  console.error('ERROR: "data/config.json" does not exist. run "npm run config".')
-  process.exit()
+if (!fs.existsSync(file)) {
+  console.error('ERROR: "data/config.json" does not exist. run "npm run config".');
+  process.exit(1);
 }
+
+const config = require(file);
+const token = config.token;
+
+if (!token) {
+  console.error('ERROR: Token not present in "data/config.json". run "npm run config".');
+  process.exit(1);
+}
+
+module.exports = new TelegramBot(token, {
+  polling: true,
+  onlyFirstMatch: true,
+});

@@ -1,31 +1,47 @@
-global.frases = require('./utils/frases')
-let bot = require('./utils/initbot')
+global.frases = require('./utils/frases');
+const bot = require('./utils/initbot');
 
-// Greet
-bot.onText(/\/start/i, require('./commands/start')(bot))
+// // Greet
+bot.onText(/\/start/i, processCommand('./commands/start', bot));
+bot.onText(/\/di(?:@\w*)?\s+(.+)/i, processCommand('./commands/di', bot));
 
-// Set up commands
-bot.onText(/\/dump*(?:@\w*)*/i, require('./commands/dump')(bot))
-bot.onText(/\/d(?:i)*(?:@\w*)*\s+(.+)/i, require('./commands/di')(bot))
-bot.onText(/\/i(?:luminame)*(?:@\w*)*/i, require('./commands/iluminame')(bot))
-bot.onText(/\/a(?:dd)*(?:@\w*)*\s+(.+)/i, require('./commands/add')(bot))
-bot.onText(/\/r(?:oll)*(?:@\w*)*\s+(.+)/i, require('./commands/roll')(bot))
-bot.onText(/\/(?:rs|rollstats)(?:@\w*)*\s*(.*)/i, require('./commands/rollstats')(bot))
-bot.onText(/\/sn(?:@\w*)*\s*(.*)/i, require('./commands/siono')(bot))
+// Quotes
+bot.onText(/\/dump(?:@\w*)?/i, processCommand('./commands/dump', bot));
+bot.onText(/\/(?:i|iluminame)(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/iluminame', bot));
+bot.onText(/\/add(?:@\w*)?\s+(.+)/i, processCommand('./commands/add', bot));
 
-// Fuck
-bot.onText(/\/(?:fuck|f)(?:@\w*)*(?:$|\s(\w*)\s*(\w*)\s*(.*))/i, require('./commands/fuck')(bot))
-bot.onText(/\/f_(\w*)(?:@\w*)*\s*(\w*)\s*(.*)/i, require('./commands/fuck')(bot))
+// Fire
+bot.onText(/\/fire(?:@\w*)?/i, processCommand('./commands/fire', bot));
+
+// Yes or No
+bot.onText(/\/sn(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/sn', bot));
+
+// Roll
+bot.onText(/\/(?:roll|r)(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/roll', bot));
+bot.onText(/\/(?:rollstats|rs)(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/rollstats', bot));
 
 // Dotka
-// bot.onText(/\/d2pro(?:@\w*)*\s*(.*)/i, require('./commands/d2/pro')(bot))
-// bot.onText(/\/d2watch(?:@\w*)*$/i, require('./commands/d2/watchall')(bot))
-// bot.onText(/\/d2watch(.+)(?:@\w*)*/i, require('./commands/d2/watch')(bot))
+bot.onText(/\/d2pro(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/d2/pro', bot));
+bot.onText(/\/d2watch(?:@\w*)?$/i, processCommand('./commands/d2/watchall', bot));
+bot.onText(/\/d2watch(.+)(?:@\w*)?/i, processCommand('./commands/d2/watch', bot));
 
 // Say
-bot.onText(/\/magic(?:@\w*)*/i, require('./commands/say/magic')(bot))
-bot.onText(/\/silence(?:@\w*)*/i, require('./commands/say/silence')(bot))
-bot.onText(/\/rekt(?:@\w*)*/i, require('./commands/say/rekt')(bot))
-bot.onText(/\/fight(?:@\w*)*/i, require('./commands/say/fight')(bot))
+bot.onText(/\/fight(?:@\w*)?/i, processCommand('./commands/say/fight', bot));
+bot.onText(/\/silence(?:@\w*)?/i, processCommand('./commands/say/silence', bot));
+bot.onText(/\/rekt(?:@\w*)?/i, processCommand('./commands/say/rekt', bot));
+bot.onText(/\/magic(?:@\w*)?/i, processCommand('./commands/say/magic', bot));
 
-console.log('Trecebot running!')
+function processCommand(command, bot) {
+  return (msg, pattern) => {
+    try {
+      return require(command)(bot, msg, pattern);
+    } catch (err) {
+      console.error(err);
+      bot.sendMessage(msg.chat.id, 'Wat?', {
+        reply_to_message_id: msg.message_id,
+      });
+    }
+  };
+}
+
+console.log('Trecebot running!');

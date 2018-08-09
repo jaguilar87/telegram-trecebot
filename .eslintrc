@@ -1,18 +1,19 @@
 {
-  "installedESLint": true,
-  "extends": "standard",
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "standard",
-    "promise",
-    "node"
+  "extends": [
+    "eslint:recommended",
+    "google"
   ],
-  "globals": {}
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "max-len": "off",
+    "require-jsdoc": "off",
+    "no-console": "off",
+    "indent": ["error", 2]
+  }
 }

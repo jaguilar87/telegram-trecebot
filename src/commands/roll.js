@@ -1,16 +1,16 @@
-let Roll = require('roll')
+const Roll = require('roll');
 
-module.exports = function (bot) {
-  return function (msg, pattern) {
-    let roll = new Roll()
-    let operation = pattern[1].replace(/\s/g, '')
-    if (roll.validate(operation)) {
-      let result = roll.roll(operation)
-      let rolled = result.rolled
-      let frase = 'Rolled: ' + rolled + ' <b>Total: ' + result.result + '</b>'
-      bot.sendMessage(msg.chat.id, frase, { parse_mode: 'HTML' })
-    } else {
-      bot.sendMessage(msg.chat.id, '¿Que tire qué?')
-    }
+module.exports = async function(bot, msg, pattern) {
+  const roll = new Roll();
+  const operation = pattern[1].replace(/\s/g, '') || 'd100';
+
+  if (!roll.validate(operation)) {
+    bot.sendMessage(msg.chat.id, '¿Que tire qué? 🤨');
   }
-}
+
+  const result = roll.roll(operation);
+  const rolled = result.rolled;
+  const frase = '🎲 Rolled: ' + rolled + ' *Total: ' + result.result + '*';
+
+  bot.sendMessage(msg.chat.id, frase, {parse_mode: 'Markdown'});
+};

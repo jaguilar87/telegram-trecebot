@@ -10,8 +10,9 @@ bot.onText(/\/dump(?:@\w*)?/i, processCommand('./commands/dump', bot));
 bot.onText(/\/(?:i|iluminame)(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/iluminame', bot));
 bot.onText(/\/add(?:@\w*)?\s+(.+)/i, processCommand('./commands/add', bot));
 
-// Fire
+// Fire and resign
 bot.onText(/\/fire(?:@\w*)?/i, processCommand('./commands/fire', bot));
+bot.onText(/\/resign(?:@\w*)?/i, processCommand('./commands/resign', bot));
 
 // Yes or No
 bot.onText(/\/sn(?:@\w*)?(?:\s+|$)(.*)/i, processCommand('./commands/sn', bot));
